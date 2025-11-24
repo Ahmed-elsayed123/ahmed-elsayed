@@ -111,6 +111,7 @@ body[dir="rtl"] {
     justify-content: space-between;
     padding: 15px 30px;
     pointer-events: auto;
+    box-sizing: border-box;
 }
 
 .nav-logo .logo-text {
@@ -180,6 +181,10 @@ body[dir="rtl"] {
     justify-content: center;
     font-size: 16px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .theme-toggle:hover,
@@ -195,11 +200,15 @@ body[dir="rtl"] {
     padding: 0 12px;
     border-radius: 20px;
     gap: 8px;
+    flex-shrink: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .lang-toggle span {
     font-size: 12px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 /* Hero Section */
@@ -940,6 +949,10 @@ body[dir="rtl"] {
     font-size: 1em;
     font-family: inherit;
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .form-group input:focus,
@@ -1094,12 +1107,14 @@ body[dir="rtl"] {
         top: 10px;
     }
     
-    .navbar .glass-effect {
+    .navbar.glass-effect {
         width: 95%;
     }
     
     .nav-container {
         padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .nav-menu {
@@ -1154,6 +1169,11 @@ body[dir="rtl"] {
         grid-template-columns: 1fr;
     }
 
+    .contact-info-card,
+    .contact-form-card {
+        padding: 25px;
+    }
+
     .experience-wrapper {
         grid-template-columns: 1fr;
     }
@@ -1165,6 +1185,7 @@ body[dir="rtl"] {
 
     .nav-controls {
         gap: 8px;
+        flex-wrap: wrap;
     }
 
     .theme-toggle,
@@ -1173,40 +1194,285 @@ body[dir="rtl"] {
         width: 32px;
         height: 32px;
         font-size: 12px;
+        min-width: 32px;
     }
 
     .lang-toggle {
         width: auto;
         padding: 0 8px;
         font-size: 11px;
+        min-width: auto;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+    .navbar {
+        top: 5px;
+        left: 0;
+        right: 0;
+    }
+    
+    .navbar.glass-effect {
+        width: 98%;
+        max-width: 100%;
+    }
+    
+    .nav-container {
+        padding: 8px 10px;
+        gap: 6px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .nav-logo {
+        flex: 0 0 auto;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 1.2em;
+        letter-spacing: 1px;
+    }
+
+    .nav-controls {
+        gap: 5px;
+        flex: 0 0 auto;
+    }
+
+    .theme-toggle,
+    .pdf-download {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+        min-width: 28px;
+        padding: 0;
+    }
+
+    .lang-toggle {
+        width: auto;
+        height: 28px;
+        padding: 0 6px;
+        font-size: 10px;
+        min-width: auto;
+    }
+
+    .lang-toggle span {
+        font-size: 10px;
+    }
+
+    .hero-section {
+        padding: 80px 10px 20px;
+    }
+
+    .hero-container {
+        gap: 30px;
+    }
+
+    .profile-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-greeting {
+        font-size: 1.2em;
+    }
+
     .hero-name {
         font-size: 1.8em;
+        margin-bottom: 15px;
     }
 
     .hero-title {
         font-size: 1.1em;
+        margin-bottom: 20px;
     }
 
-    .section {
-        padding: 20px 15px;
+    .hero-description {
+        font-size: 0.95em;
+        line-height: 1.6;
     }
 
-    .skill-item {
-        grid-template-columns: 1fr;
+    .hire-me-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+        width: 100%;
         text-align: center;
     }
 
-    .skill-percent {
-        margin-top: 10px;
+    .section {
+        padding: 20px 10px;
+        margin: 20px 0;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+
+    .section-title i {
+        font-size: 0.9em;
+    }
+
+    .contact-grid-two {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+        padding: 20px 15px;
+    }
+
+    .contact-info-card h3,
+    .contact-form-card h3 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .contact-info-item {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .contact-info-item i {
+        font-size: 1.2em;
+    }
+
+    .contact-info-item h4 {
+        font-size: 0.9em;
+    }
+
+    .contact-info-item a,
+    .contact-info-item span {
+        font-size: 0.95em;
+        word-break: break-word;
+    }
+
+    .contact-form {
+        gap: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+        top: 12px;
+        left: 12px;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+        top: -8px;
+        left: 8px;
+        font-size: 0.8em;
+    }
+
+    .submit-btn {
+        padding: 12px 30px;
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .form-message {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+
+    .project-card,
+    .network-card,
+    .language-item,
+    .media-item {
+        padding: 20px;
+    }
+
+    .achievement-item,
+    .education-item {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .achievement-item i,
+    .education-icon {
+        font-size: 2em;
+    }
+
+    .skill-item {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .skill-item i {
+        font-size: 2em;
+    }
+
+    .skills-tags {
+        gap: 10px;
+    }
+
+    .skill-tag {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Additional styles for very small screens - most styles already covered in 500px */
+    .navbar.glass-effect {
+        width: 99%;
+    }
+
+    .nav-container {
+        padding: 6px 8px;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 1.1em;
+    }
+
+    .theme-toggle,
+    .pdf-download {
+        width: 26px;
+        height: 26px;
+        font-size: 10px;
+    }
+
+    .lang-toggle {
+        height: 26px;
+        padding: 0 5px;
+        font-size: 9px;
+    }
+
+    .hero-section {
+        padding: 70px 8px 15px;
     }
 
     .profile-circle {
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-content {
+        padding: 15px;
+    }
+
+    .section {
+        padding: 15px 8px;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+        padding: 15px 10px;
     }
 }
 
